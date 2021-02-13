@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, yangguangjiabing,github">
+    <meta name="keywords" content="laravel-自定义常量, yangguangjiabing,github">
     <meta name="description" content="北冥有鱼，其名为鲲，鲲之大，不知其几千里也； 化而为鸟，其名为鹏.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签 | Yangxin</title>
+    <title>laravel-自定义常量 | Yangxin</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -288,12 +288,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">标签</h1>
+                    <h1 class="description center-align post-title">laravel-自定义常量</h1>
                 </div>
             </div>
         </div>
@@ -407,12 +407,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/laravel/">
+                                <span class="chip bg-color">laravel</span>
+                            </a>
+                        
+                            <a href="/tags/php/">
+                                <span class="chip bg-color">php</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/PHP/" class="post-category">
+                                PHP
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -421,7 +438,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2017-03-28
+                    2017-04-24
                 </div>
                 
 
@@ -442,7 +459,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <p>在 laravel 中自定义常量的方式：</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><ol>
+<li><p>定义<br>在 <code>app/config</code> 下新建一个 <code>php</code> 文件，如：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="comment">// app/config/demo.php</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> [</span><br><span class="line">      <span class="string">&#x27;NAME&#x27;</span> =&gt; <span class="string">&#x27;val&#x27;</span></span><br><span class="line">  ];</span><br></pre></td></tr></table></figure></li>
+<li><p>使用<br>在任意文件中直接使用 <code>config</code> 辅助函数获取你的设置值</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// routes/web.php</span></span><br><span class="line"></span><br><span class="line">Route::get(<span class="string">&#x27;/&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> config(<span class="string">&#x27;demo.NAME&#x27;</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+</li>
+</ol>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>很多时候我们需要用到常量，那么怎么在laravel定义常量呢，有以下几种：</p>
+<ol>
+<li><p>在app/constants.php(手动创建文件)里定义纯PHP常量</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">define(<span class="string">&#x27;ADMIN&#x27;</span>, <span class="string">&#x27;administrator&#x27;</span>);</span><br></pre></td></tr></table></figure>
+<p>然后在app/bootstrap/autolad.php：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">require</span> <span class="keyword">__DIR__</span>.<span class="string">&#x27;/../app/functions.php&#x27;</span>; <span class="comment">//引入自定义常量文件</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2></li>
+</ol>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://ilongx.com/article/6">laravel 自定义常量方法</a></li>
+<li><a target="_blank" rel="noopener" href="http://www.emptyrealm.com/laravel%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F/">laravel自定义常量</a></li>
+</ul>
+
                 
             </div>
             <hr/>
@@ -468,7 +507,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yangguangjiabing.github.io/tags/index.html">https://yangguangjiabing.github.io/tags/index.html</a>
+                    <a href="https://yangguangjiabing.github.io/2017/04/24/PHP/larave-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F/">https://yangguangjiabing.github.io/2017/04/24/PHP/larave-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B8%B8%E9%87%8F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -505,7 +544,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/laravel/">
+                                    <span class="chip bg-color">laravel</span>
+                                </a>
+                            
+                                <a href="/tags/php/">
+                                    <span class="chip bg-color">php</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -675,18 +722,17 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/tags/index.html">
+                <a href="/2017/04/24/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E5%A0%86%E6%8E%92%E5%BA%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="标签">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="排序算法 堆排序">
                         
-                        <span class="card-title">标签</span>
+                        <span class="card-title">排序算法 堆排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -696,18 +742,33 @@
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-03-28
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-04-24
+                        </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            54
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">排序算法</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -715,37 +776,52 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/tags/index.html">
+                <a href="/2017/04/22/%E7%AE%97%E6%B3%95/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="标签">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="排序算法-快速排序">
                         
-                        <span class="card-title">标签</span>
+                        <span class="card-title">排序算法-快速排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
+                            工作原理在平均状况下，排序n个项目要Ο(n log n)次比较。在最坏状况下则需要Ο(n2)次比较，但这种状况并不常见。事实上，快速排序通常明显比其他Ο(n log n)算法更快，因为它的内部循环（inner loop）可以在大部分的架构上
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2017-03-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-04-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            54
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E7%AE%97%E6%B3%95/" class="post-category">
+                                    算法
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">算法</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">排序算法</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
